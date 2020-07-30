@@ -1,0 +1,21 @@
+{
+    "name": "rtcamp/trust-txt",
+    "description": "Create, manage, and validate your trust.txt from within WordPress, just like any other content asset.",
+    "authors": [
+        {
+            "name": "rtCamp",
+            "email": "opensource@rtcamp.com"
+        }
+      ],
+    "type": "wordpress-plugin",
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5",
+        "wp-coding-standards/wpcs": "^2.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
+    },
+    "license": "GPLv2 or later",
+    "scripts": {
+        "lint": "vendor/bin/phpcs --standard=WordPress *.php inc/*.php",
+        "lint-fix": "vendor/bin/phpcbf --standard=WordPress *.php inc/*.php"
+    }
+}
