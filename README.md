@@ -4,7 +4,7 @@
 
 ## Features
 
-![Screenshot of trust.txt editor](.wordpress-org/screenshot-1.png "Example of editing an trust.txt file with errors and a link to browse trust.txt file revisions.")
+![Screenshot of trust.txt editor](.wordpress-org/screenshot-1.png "Example of editing a trust.txt file with errors and a link to browse trust.txt file revisions.")
 
 Trust.txt is an underlying system to systematically publish the connection between website Publishers and Associations those Publishers choose to make. Through our work at rtCamp, we've created a way to manage and validate your trust.txt file from within WordPress, eliminating the need to upload a file. The validation baked into the plugin helps avoid malformed records, which can cause issues that end up cached for up to 24 hours and can lead to a drop in ad revenue.
 
@@ -32,9 +32,9 @@ You will need to rename or remove the existing trust.txt file (keeping a copy of
 
 ## Screenshots
 
-### 1. Example of editing an trust.txt file with errors and a link to browse trust.txt file revisions.
+### 1. Example of editing a trust.txt file with errors and a link to browse trust.txt file revisions.
 
-![Screenshot of trust.txt editor](.wordpress-org/screenshot-1.png "Example of editing an trust.txt file with errors and a link to browse trust.txt file revisions.")
+![Screenshot of trust.txt editor](.wordpress-org/screenshot-1.png "Example of editing a trust.txt file with errors and a link to browse trust.txt file revisions.")
 
 ### 2. Example of comparing trust.txt file revisions.
 

@@ -165,7 +165,7 @@ function trusttxt_settings_screen() {
 
 	$strings = array(
 		'existing'      => __( 'Existing Trust.txt file found', 'trust-txt' ),
-		'precedence'    => __( 'An trust.txt file on the server will take precedence over any content entered here. You will need to rename or remove the existing trust.txt file before you will be able to see any changes you make on this screen.', 'trust-txt' ),
+		'precedence'    => __( 'A trust.txt file on the server will take precedence over any content entered here. You will need to rename or remove the existing trust.txt file before you will be able to see any changes you make on this screen.', 'trust-txt' ),
 		'errors'        => __( 'Your Trust.txt contains the following issues:', 'trust-txt' ),
 		'screen_title'  => __( 'Manage Trust.txt', 'trust-txt' ),
 		'content_label' => __( 'Trust.txt content', 'trust-txt' ),
@@ -331,7 +331,7 @@ function settings_screen( $post_id, $strings, $args ) {
 		<p class="trusttxt-ays">
 			<input id="trusttxt-ays-checkbox" name="trusttxt_ays" type="checkbox" value="y" />
 			<label for="trusttxt-ays-checkbox">
-				<?php esc_html_e( 'Update anyway, even though it may adversely affect your trust?', 'trust-txt' ); ?>
+				<?php esc_html_e( 'Update anyway?', 'trust-txt' ); ?>
 			</label>
 		</p>
 		<# } #>
@@ -384,13 +384,13 @@ function display_formatted_error( $error ) {
  */
 function get_error_messages() {
 	$messages = array(
-		'invalid_variable'     => __( 'Unrecognized variable' ),
-		'invalid_record'       => __( 'Invalid record' ),
+		'invalid_variable'     => __( 'The first word in this line is not one of the recognized variables. Please see JournalList.net for allowed variables.' ),
+		'invalid_record'       => __( 'This line does not conform with the trust.txt recommendations. Please read about what is recommended on JournalList.net.' ),
 		'invalid_social'       => __( '%s does not appear to be a valid social media domain' ),
 		/* translators: %s: Domain */
 		'invalid_domain'       => __( '%s does not appear to be a valid domain' ),
 		/* translators: %s: Domain */
-		'invalid_disclosure'   => __( '%s does not appear to be a valid disclosure URL' ),
+		'invalid_disclosure'   => __( '%s does not appear to be a valid URL' ),
 		/* translators: %s: contact information */
 		'invalid_contact'      => __( '%s does not appear to be a valid contact information' ),
 		'invalid_blank'        => __( 'This field can not be blank. Either remove it or add valid value' ),

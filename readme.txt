@@ -35,7 +35,7 @@ Yes! However, if you are using a subfolder installation it will only work for th
 
 == Screenshots ==
 
-1. Example of editing an Trust.txt file with errors and a link to browse Trust.txt file revisions.
+1. Example of editing a Trust.txt file with errors and a link to browse Trust.txt file revisions.
 2. Example of comparing Trust.txt file revisions.
 3. Example of comparing two disparate Trust.txt file revisions.
 
