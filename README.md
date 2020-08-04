@@ -2,6 +2,8 @@
 
 > Create, manage, and validate your trust.txt from within WordPress, just like any other content asset. This plugin uses the [Ads.txt manager](https://github.com/10up/ads-txt) codebase as a starting point.
 
+* **Contributors:** [rtcamp](http://profiles.wordpress.org/rtcamp), [mangeshp](http://profiles.wordpress.org/mangeshp), [scodtt](https://profiles.wordpress.org/scodtt), [journallist](https://profiles.wordpress.org/journallist)
+
 ## Features
 
 ![Screenshot of trust.txt editor](.wordpress-org/screenshot-1.png "Example of editing a trust.txt file with errors and a link to browse trust.txt file revisions.")

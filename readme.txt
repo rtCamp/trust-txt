@@ -1,5 +1,6 @@
 === Trust.txt Manager ===
 Author URI: https://rtcamp.com
+Contributors: rtcamp, mangeshp, scodtt, journallist
 Plugin URI: https://github.com/rtcamp/trust-txt
 Tags: Trust.txt
 Requires at least: 4.9
