@@ -29,6 +29,7 @@ Comparing two revisions:
 ## FAQ
 
 ###Can I use this with multisite?
+
 Yes! However, if you are using a subfolder installation it will only work for the main site. This is because you can only have one trust.txt for a given domain or subdomain per the trust.txt spec. Our recommendation is to only activate Trust.txt Manager per-site.
 
 ## Credits
