@@ -20,7 +20,10 @@ This plugin uses the [Ads.txt manager](https://github.com/10up/ads-txt) codebase
 
 === What is Trust.txt? ===
 
-Trust.txt is an underlying system to systematically publish the connection between website Publishers and Associations those Publishers choose to make.
+Trust.txt is an effort by [JournalList](https://journallist.net/about) to systematically and transparently disclose connections between journalists, publishers & associations.
+The concept of a trust.txt file borrows heavily from two previous very successful efforts improving the overall experience of the internet: robots.txt and ads.txt.
+With both, website publishers are able to create a small and very manageable file that they have full control over that helps platforms and advertisers improve the overall ecosystem, and thereby the experience for users. So it is with trust.txt.
+This plugin provides a way to create & manage your trust.txt from within WordPress, just like any other content asset. The validation logic baked into the plugin helps avoid malformed records.
 
 === Technical Notes ===
 
