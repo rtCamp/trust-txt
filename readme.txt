@@ -38,9 +38,9 @@ Yes! However, if you are using a subfolder installation it will only work for th
 
 == Screenshots ==
 
-1. Example of editing a Trust.txt file with errors and a link to browse Trust.txt file revisions.
-2. Example of comparing Trust.txt file revisions.
-3. Example of comparing two disparate Trust.txt file revisions.
+1. Verbose error messages.
+2. Fully revision history support.
+3. Comparing two revisions.
 
 == Installation ==
 1. Install and activate this plugin as per usual.
