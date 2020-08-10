@@ -8,14 +8,14 @@ This plugin provides a way to create & manage your trust.txt from within WordPre
 * Requires PHP 5.3+.
 * Requires WordPress 4.9+. Older versions of WordPress will not display any syntax highlighting and may break JavaScript and/or be unable to localize the plugin.
 * Rewrites need to be enabled. Without rewrites, WordPress cannot know to supply /trust.txt when requested.
-⚠ Your site URL must not contain a path (e.g. https://example.com/site/ or path-based multisite installs). While the plugin will appear to function in the WP admin, it will not display the contents at https://example.com/site/trust.txt. This is because the plugin enforces [the specification](https://journallist.net/reference-document-for-trust-txt-specifications) as defined by JournalList, which requires that the trust.txt file be located at the root of a domain or subdomain.
+* Your site URL must not contain a path (e.g. https://example.com/site/ or path-based multisite installs). While the plugin will appear to function in the WP admin, it will not display the contents at https://example.com/site/trust.txt. This is because the plugin enforces [the specification](https://journallist.net/reference-document-for-trust-txt-specifications) as defined by JournalList, which requires that the trust.txt file be located at the root of a domain or subdomain.
 
 ## Installation:
 
 1. Install and activate this plugin as per usual.
-1. Go to Settings > Trust.txt and add the records you need. Ref: [trust.txt specification details](https://journallist.net/reference-document-for-trust-txt-specifications).
-1. Your trust.txt file will appear at yoursite.com/trust.txt
-⚠ Make sure to remove or rename any pre-existing trust.txt file from your web root as this plugin will NOT override it with the changes you make from the WordPress interface.
+2. Go to Settings > Trust.txt and add the records you need. Ref: [trust.txt specification details](https://journallist.net/reference-document-for-trust-txt-specifications).
+3. Your trust.txt file will appear at yoursite.com/trust.txt
+4. Make sure to remove or rename any pre-existing trust.txt file from your web root as this plugin will NOT override it with the changes you make from the WordPress interface.
 
 ## Screenshots
 

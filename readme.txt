@@ -16,7 +16,7 @@ Create, manage, and validate your Trust.txt from within WordPress, just like any
 == Description ==
 
 Create, manage, and validate your Trust.txt from within WordPress, just like any other content asset. Requires PHP 5.3+ and WordPress 4.9+.
-This plugin uses the [Ads.txt manager](https://github.com/10up/ads-txt) codebase as a starting point.
+This plugin uses the [Ads.txt Manager](https://github.com/10up/ads-txt) codebase as a starting point.
 
 === What is Trust.txt? ===
 
@@ -29,9 +29,8 @@ This plugin provides a way to create & manage your trust.txt from within WordPre
 
 * Requires PHP 5.3+.
 * Requires WordPress 4.9+. Older versions of WordPress will not display any syntax highlighting and may break JavaScript and/or be unable to localize the plugin.
-* Ad blockers may break syntax highlighting and pre-save error checking on the edit screen.
-* Rewrites need to be enabled. Without rewrites, WordPress cannot know to supply `/Trust.txt` when requested.
-* Your site URL must not contain a path (e.g. `https://example.com/site/` or path-based multisite installs). While the plugin will appear to function in the admin, it will not display the contents at `https://example.com/site/Trust.txt`.
+* Rewrites need to be enabled. Without rewrites, WordPress cannot know to supply /trust.txt when requested.
+* Your site URL must not contain a path (e.g. https://example.com/site/ or path-based multisite installs). While the plugin will appear to function in the WP admin, it will not display the contents at https://example.com/site/trust.txt. This is because the plugin enforces [the specification](https://journallist.net/reference-document-for-trust-txt-specifications) as defined by JournalList, which requires that the trust.txt file be located at the root of a domain or subdomain.
 
 === Can I use this with multisite? ===
 
@@ -44,10 +43,10 @@ Yes! However, if you are using a subfolder installation it will only work for th
 3. Example of comparing two disparate Trust.txt file revisions.
 
 == Installation ==
-1. Install the plugin via the plugin installer, either by searching for it or uploading a .zip file.
-2. Activate the plugin.
-3. Head to Settings → Trust.txt or App-Trust.txt and add the records you need.
-4. Check it out at yoursite.com/Trust.txt!
+1. Install and activate this plugin as per usual.
+2. Go to Settings > Trust.txt and add the records you need. Ref: [trust.txt specification details](https://journallist.net/reference-document-for-trust-txt-specifications).
+3. Your trust.txt file will appear at yoursite.com/trust.txt
+4. Make sure to remove or rename any pre-existing trust.txt file from your web root as this plugin will NOT override it with the changes you make from the WordPress interface.
 
 Note: If you already have an existing Trust.txt file in the web root, the plugin will not read in the contents of the respective files, and changes you make in WordPress admin will not overwrite contents of the physical files.
 
@@ -57,3 +56,8 @@ You will need to rename or remove the existing Trust.txt file (keeping a copy of
 
 = 1.0 =
 * Initial plugin release
+
+== Credits ==
+
+* [10up](https://10up.com/) for developing the [Ads.txt Manager](https://github.com/10up/ads-txt) this plugin is largely based off of.
+* [mangeshp](http://profiles.wordpress.org/mangeshp), [scodtt](https://profiles.wordpress.org/scodtt), [journallist](https://profiles.wordpress.org/journallist) for their contributions to the codebase.
