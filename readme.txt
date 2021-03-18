@@ -4,7 +4,7 @@ Contributors: rtcamp, mangeshp, scodtt, journallist
 Plugin URI: https://github.com/rtcamp/trust-txt
 Tags: Trust.txt
 Requires at least: 4.9
-Tested up to: 5.4
+Tested up to: 5.7
 Requires PHP: 5.3
 Stable tag: 1.0
 License: GPLv2 or later
