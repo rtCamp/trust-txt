@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'TRUST_TXT_MANAGER_VERSION', '1.0' );
+define( 'TRUST_TXT_MANAGER_VERSION', '1.1' );
 define( 'TRUST_TXT_MANAGE_CAPABILITY', 'edit_trust_txt' );
 define( 'TRUST_TXT_MANAGER_POST_OPTION', 'trusttxt_post' );
 
@@ -29,8 +29,15 @@ require_once __DIR__ . '/inc/save.php';
  * @return void
  */
 function rtcamp_display_trust_txt() {
-	$request = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : false;
-	if ( '/trust.txt' === $request ) {
+	$request 			   = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : false;
+	$trust_well_known_path = get_option( 'trust_custom_path' );
+
+	$path_to_check = '/trust.txt';
+	if ( $trust_well_known_path ) {
+		$path_to_check = '/.well-known/trust.txt';
+	}
+
+	if ( $path_to_check === $request ) {
 		$post_id = get_option( TRUST_TXT_MANAGER_POST_OPTION );
 
 		// Will fall through if no option found, likely to a 404.

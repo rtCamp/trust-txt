@@ -52,6 +52,8 @@ function save() {
 		),
 	);
 
+	update_option( 'trust_custom_path', sanitize_text_field( $_post['trust_path'] ) );
+
 	if ( ! $doing_ajax || empty( $errors ) || 'y' === $ays ) {
 		$post_id = wp_insert_post( $postarr );
 
