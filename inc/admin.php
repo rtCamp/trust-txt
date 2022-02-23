@@ -191,6 +191,7 @@ function trusttxt_settings_screen() {
  * @return void
  */
 function settings_screen( $post_id, $strings, $args ) {
+	$trust_path 	  = get_option( 'trust_custom_path' );
 	$post             = false;
 	$content          = false;
 	$errors           = [];
@@ -293,6 +294,10 @@ function settings_screen( $post_id, $strings, $args ) {
 		?>
 		<div id="trusttxt-notification-area"></div>
 
+		<br />
+
+		<label><input type="checkbox" name="trust_path" value="1" <?php checked( $trust_path, 1, true ); ?> /> Make trust.txt file accessible from .well-known directory.</label>
+
 		<p class="submit">
 			<input type="submit" name="submit" id="submit" class="button button-primary" value="<?php echo esc_attr( 'Save Changes' ); ?>">
 			<span class="spinner" style="float:none;vertical-align:top"></span>
@@ -338,6 +343,9 @@ function settings_screen( $post_id, $strings, $args ) {
 
 		<# } #>
 	</script>
+
+
+
 </div>
 
 	<?php
