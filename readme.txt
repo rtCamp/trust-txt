@@ -6,7 +6,7 @@ Tags: Trust.txt
 Requires at least: 4.9
 Tested up to: 5.4
 Requires PHP: 5.3
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 Text Domain: trust-txt
@@ -54,8 +54,17 @@ You will need to rename or remove the existing Trust.txt file (keeping a copy of
 
 == Changelog ==
 
+= 1.1 [February 23, 2022] =
+* Add setting to make trust.txt file accessible from the .well-known directory
+
 = 1.0 =
 * Initial plugin release
+
+== Upgrade Notice ==
+
+= 1.1 =
+Add setting to make trust.txt file accessible from the .well-known directory
+
 
 == Credits ==
 
