@@ -37,7 +37,12 @@ function rtcamp_display_trust_txt() {
 		$path_to_check = '/.well-known/trust.txt';
 	}
 
-	if ( $path_to_check === $request ) {
+	$valid_paths = array(
+		'/trust.txt',
+		'/.well-known/trust.txt',
+	);
+
+	if ( in_array( $path_to_check, $valid_paths, true ) ) {
 		$post_id = get_option( TRUST_TXT_MANAGER_POST_OPTION );
 
 		// Will fall through if no option found, likely to a 404.
