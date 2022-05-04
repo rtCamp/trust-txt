@@ -32,17 +32,15 @@ function rtcamp_display_trust_txt() {
 	$request 			   = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : false;
 	$trust_well_known_path = get_option( 'trust_custom_path' );
 
-	$path_to_check = '/trust.txt';
-	if ( $trust_well_known_path ) {
-		$path_to_check = '/.well-known/trust.txt';
-	}
-
 	$valid_paths = array(
 		'/trust.txt',
-		'/.well-known/trust.txt',
 	);
 
-	if ( in_array( $path_to_check, $valid_paths, true ) ) {
+	if ( $trust_well_known_path ) {
+		$valid_paths[] = '/.well-known/trust.txt';
+	}
+
+	if ( in_array( $request, $valid_paths, true ) ) {
 		$post_id = get_option( TRUST_TXT_MANAGER_POST_OPTION );
 
 		// Will fall through if no option found, likely to a 404.
