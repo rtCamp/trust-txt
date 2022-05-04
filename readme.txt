@@ -4,9 +4,9 @@ Contributors: rtcamp, mangeshp, scodtt, journallist
 Plugin URI: https://github.com/rtcamp/trust-txt
 Tags: Trust.txt
 Requires at least: 4.9
-Tested up to: 5.4
+Tested up to: 5.9.3
 Requires PHP: 5.3
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 Text Domain: trust-txt
@@ -54,6 +54,10 @@ You will need to rename or remove the existing Trust.txt file (keeping a copy of
 
 == Changelog ==
 
+= 1.2 [ May 04, 2022 ] =
+* Show contents of trust.txt file on both the paths depending upon the plugin settings
+* Make trust.txt accessible on root as well as on .well-known directory
+
 = 1.1 [February 23, 2022] =
 * Add setting to make trust.txt file accessible from the .well-known directory
 
@@ -62,8 +66,8 @@ You will need to rename or remove the existing Trust.txt file (keeping a copy of
 
 == Upgrade Notice ==
 
-= 1.1 =
-Add setting to make trust.txt file accessible from the .well-known directory
+= 1.2 =
+* Show contents of trust.txt file on both the paths depending upon the plugin settings
 
 
 == Credits ==

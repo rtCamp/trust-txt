@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Trust.txt Manager
  * Description: Create, manage, and validate your Trust.txt from within WordPress, just like any other content asset. Requires PHP 5.3+ and WordPress 4.9+.
- * Version:     1.1
+ * Version:     1.2
  * Author:      rtCamp
  * Author URI:  https://rtcamp.com
  * License:     GPLv2 or later
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'TRUST_TXT_MANAGER_VERSION', '1.1' );
+define( 'TRUST_TXT_MANAGER_VERSION', '1.2' );
 define( 'TRUST_TXT_MANAGE_CAPABILITY', 'edit_trust_txt' );
 define( 'TRUST_TXT_MANAGER_POST_OPTION', 'trusttxt_post' );
 
@@ -32,12 +32,15 @@ function rtcamp_display_trust_txt() {
 	$request 			   = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : false;
 	$trust_well_known_path = get_option( 'trust_custom_path' );
 
-	$path_to_check = '/trust.txt';
+	$valid_paths = array(
+		'/trust.txt',
+	);
+
 	if ( $trust_well_known_path ) {
-		$path_to_check = '/.well-known/trust.txt';
+		$valid_paths[] = '/.well-known/trust.txt';
 	}
 
-	if ( $path_to_check === $request ) {
+	if ( in_array( $request, $valid_paths, true ) ) {
 		$post_id = get_option( TRUST_TXT_MANAGER_POST_OPTION );
 
 		// Will fall through if no option found, likely to a 404.
