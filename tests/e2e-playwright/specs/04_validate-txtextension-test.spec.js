@@ -3,7 +3,7 @@
  */
  const { test, expect } = require("@wordpress/e2e-test-utils-playwright");
 
- const { WP_BASE_URL } = require("@wordpress/e2e-test-utils-playwright/src/config");
+ const { WP_BASE_URL } = require("../e2e-test-utils-playwright/src/config");
  
  test.describe("Add and validate the .txt extension file", () => {
    test("Should able to add the .txt extension file", async ({ admin, page }) => {
