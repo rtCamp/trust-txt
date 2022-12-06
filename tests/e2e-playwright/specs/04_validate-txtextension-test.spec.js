@@ -3,7 +3,7 @@
  */
  const { test, expect } = require("@wordpress/e2e-test-utils-playwright");
 
- const { WP_BASE_URL } = require("../e2e-test-utils-playwright/src/config");
+ const { WP_BASE_URL } = require("@wordpress/e2e-test-utils-playwright/src/config");
  
  test.describe("Add and validate the .txt extension file", () => {
    test("Should able to add the .txt extension file", async ({ admin, page }) => {
@@ -26,7 +26,6 @@
      );
  
      await page.click("#submit");
-     await page.waitForTimeout(2000);
    });
  
    test("Should able to validate the .txt extension file", async ({ admin, page }) => {
@@ -34,10 +33,9 @@
  
      await page.goto(WP_BASE_URL + "/trust.txt");
  
-     // Add the page content in array and validate the belong to URL. 
-     var pagecontent = [];
-     pagecontent = await page.content();
-     pagecontent.includes("disclosure=https://test.com/abc.txt");
+    //validate the belong to URL. 
+    await page.waitForTimeout(2000);
+    expect(page.locator( "body pre" )).toHaveText( /example/ )
  
    });
  });
