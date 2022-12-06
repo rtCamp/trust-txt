@@ -16,6 +16,8 @@ test.describe("Validate the Revisions settings", () => {
       "Manage Trust.txt"
     );
 
+    await page.screenshot({path: "uploads/browse.png"});
+
     await page.click('role=link[name="Browse revisions"i]');
 
     await page.waitForTimeout(1000);
@@ -36,6 +38,8 @@ test.describe("Validate the Revisions settings", () => {
     await expect(page.locator("div[class='wrap'] h2")).toHaveText(
       "Manage Trust.txt"
     );
+
+    await page.screenshot({path: "uploads/browse.png"});
 
     await page.click('role=link[name="Browse revisions"i]');
 
