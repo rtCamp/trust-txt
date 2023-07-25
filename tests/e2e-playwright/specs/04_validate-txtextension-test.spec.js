@@ -1,31 +1,26 @@
 /**
  * WordPress dependencies
  */
- const { test, expect } = require("@wordpress/e2e-test-utils-playwright");
-
- const { WP_BASE_URL } = require("../e2e-test-utils-playwright/src/config");
+const { test, expect } = require("@wordpress/e2e-test-utils-playwright");
+const { commonFunction } = require( "../page/commonFunction" )
+const { WP_BASE_URL } = require("../e2e-test-utils-playwright/src/config");
+const { selectors } = require("../utils/selectors");
  
  test.describe("Add and validate the .txt extension file", () => {
    test("Should able to add the .txt extension file", async ({ admin, page }) => {
      await admin.visitAdminPage("/");
  
-     await page.hover('role=link[name="Settings"i]');
+     const commonfunction = new commonFunction(page)
+     await commonfunction.navigateToTrusttxtSettings();
  
-     await page.click('role=link[name="Trust.txt"i]');
- 
-     await page.waitForTimeout(1000);
-     await expect(page.locator("div[class='wrap'] h2")).toHaveText(
-       "Manage Trust.txt"
-     );
- 
-     await page.click(  "div[class='CodeMirror-lines']" );
+     await page.click( selectors.inputFieldSelector);
  
      await page.type(
-       "div[class='CodeMirror-lines']",
+       selectors.inputFieldSelector,
        "disclosure=https://test.com/abc.txt"
      );
  
-     await page.click("#submit");
+     await page.click(selectors.submitButtonSelector);
    });
  
    test("Should able to validate the .txt extension file", async ({ admin, page }) => {
