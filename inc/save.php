@@ -91,6 +91,7 @@ add_action( 'wp_ajax_trusttxt-save', __NAMESPACE__ . '\save' );
  * }
  */
 function validate_line( $line, $line_number ) {
+
 	$domain_regex       = '/^(https?):\/\/((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}(\/)?([a-z0-9-.\/_]*)$/i';
 	$disclosure_regex   = '/^(https?):\/\/((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}(\/)?([a-z0-9-.\/_]*.txt)$/i';
 	$errors             = array();
@@ -109,6 +110,9 @@ function validate_line( $line, $line_number ) {
 		} elseif ( preg_match( '/^(member|belongto|control|controlledby|disclosure|social|contact|datatrainingallowed)=/i', $line ) ) {
 			// If we have a valid spec from the above list, check if the domain format is correct
 			// This elseif condition is unnecessary but in future it will be needed
+
+			// This is a hack to allow only one datatrainingallowed record.
+			static $datatrainingallowed_count = 0;
 	
 			// Disregard any comments.
 			$spec = explode( '#', $line );
@@ -132,6 +136,16 @@ function validate_line( $line, $line_number ) {
 				// Use special contact regex for validation
 				$validation_regex = '/^(yes|no)$/i';
 				$error_type       = 'invalid_datatrainingallowed';
+
+				// If we have more than one datatrainingallowed record, it's invalid.
+				if ( 0 < $datatrainingallowed_count ) {
+					$errors[] = array(
+						'line' => $line_number,
+						'type' => 'invalid_datatrainingallowed_count',
+					);
+				} else {
+					$datatrainingallowed_count++;
+				}
 			}
 
 			if ( '' === $spec[0] ) {

@@ -392,17 +392,18 @@ function display_formatted_error( $error ) {
  */
 function get_error_messages() {
 	$messages = array(
-		'invalid_variable'            => __( 'The first word in this line is not one of the recognized variables. Please see JournalList.net for allowed variables.' ),
-		'invalid_record'              => __( 'This line does not conform with the trust.txt recommendations. Please read about what is recommended on JournalList.net.' ),
-		'invalid_social'              => __( '%s does not appear to be a valid social media domain' ),
+		'invalid_variable'                  => __( 'The first word in this line is not one of the recognized variables. Please see JournalList.net for allowed variables.' ),
+		'invalid_record'                    => __( 'This line does not conform with the trust.txt recommendations. Please read about what is recommended on JournalList.net.' ),
+		'invalid_social'                    => __( '%s does not appear to be a valid social media domain' ),
 		/* translators: %s: Domain */
-		'invalid_domain'              => __( '%s does not appear to be a valid domain' ),
+		'invalid_domain'                    => __( '%s does not appear to be a valid domain' ),
 		/* translators: %s: Domain */
-		'invalid_disclosure'          => __( '%s does not appear to be a valid URL' ),
-		'invalid_datatrainingallowed' => __( 'Invalid input. Please enter "yes" or "no" (case-sensitive)' ),
+		'invalid_disclosure'                => __( '%s does not appear to be a valid URL' ),
+		'invalid_datatrainingallowed'       => __( 'Invalid input. Please enter "yes" or "no" (case-sensitive)' ),
+		'invalid_datatrainingallowed_count' => __( 'Only one datatrainingallowed record is allowed' ),
 		/* translators: %s: contact information */
-		'invalid_contact'             => __( '%s does not appear to be a valid contact information' ),
-		'invalid_blank'               => __( 'This field can not be blank. Either remove it or add valid value' ),
+		'invalid_contact'                   => __( '%s does not appear to be a valid contact information' ),
+		'invalid_blank'                     => __( 'This field can not be blank. Either remove it or add valid value' ),
 	);
 
 	return $messages;
