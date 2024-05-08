@@ -102,12 +102,12 @@ function validate_line( $line, $line_number ) {
 		$sanitized = wp_strip_all_tags( $line );
 	} elseif ( 1 < strpos( $line, '=' ) ) { // This is a variable declaration.
 		// The spec currently supports member, belongto, control, controlledby, social, disclosure and contact
-		if ( ! preg_match( '/^(member|belongto|control|controlledby|social|disclosure|contact|datatrainingallowed)=/i', $line ) ) {
+		if ( ! preg_match( '/^(member|belongto|control|controlledby|social|disclosure|contact|vendor|customer|datatrainingallowed)=/i', $line ) ) {
 			$errors[] = array(
 				'line' => $line_number,
 				'type' => 'invalid_variable',
 			);
-		} elseif ( preg_match( '/^(member|belongto|control|controlledby|disclosure|social|contact|datatrainingallowed)=/i', $line ) ) {
+		} elseif ( preg_match( '/^(member|belongto|control|controlledby|disclosure|social|contact|vendor|customer|datatrainingallowed)=/i', $line ) ) {
 			// If we have a valid spec from the above list, check if the domain format is correct
 			// This elseif condition is unnecessary but in future it will be needed
 
