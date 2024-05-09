@@ -375,7 +375,8 @@ function display_formatted_error( $error ) {
 		$error['value'] = '';
 	}
 
-	$message = sprintf( esc_html( $messages[ $error['type'] ] ), '<code>' . esc_html( $error['value'] ) . '</code>' );
+	$replacement_link = '<a href="https://journallist.net/reference-document-for-trust-txt-specifications" target="_blank">JournalList.net</a>';
+	$message = sprintf( str_replace("JournalList.net", $replacement_link, esc_html( $messages[ $error['type'] ] ) ), '<code>' . esc_html( $error['value'] ) . '</code>' );
 
 	printf(
 		/* translators: Error message output. 1: Line number, 2: Error message */
