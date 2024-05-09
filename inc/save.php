@@ -91,7 +91,7 @@ add_action( 'wp_ajax_trusttxt-save', __NAMESPACE__ . '\save' );
  * }
  */
 function validate_line( $line, $line_number ) {
-	$domain_regex       = '/^(https?):\/\/((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}(\/)?([a-z0-9-.\/_]*)$/i';
+	$domain_regex       = '/^(https?):\/\/((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}(\/)?(@)?([a-z0-9-.\/_]*)$/i';
 	$disclosure_regex   = '/^(https?):\/\/((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}(\/)?([a-z0-9-.\/_]*.txt)$/i';
 	$errors             = array();
 
