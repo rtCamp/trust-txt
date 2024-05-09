@@ -61,6 +61,7 @@ function rtcamp_display_trust_txt() {
 			 *
 			 * @param type  $trusttxt The existing trust.txt content.
 			 */
+			ob_clean();
 			echo esc_html( apply_filters( 'trust_txt_content', $trusttxt ) );
 			die();
 		}

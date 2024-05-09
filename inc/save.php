@@ -101,14 +101,17 @@ function validate_line( $line, $line_number ) {
 		$sanitized = wp_strip_all_tags( $line );
 	} elseif ( 1 < strpos( $line, '=' ) ) { // This is a variable declaration.
 		// The spec currently supports member, belongto, control, controlledby, social, disclosure and contact
-		if ( ! preg_match( '/^(member|belongto|control|controlledby|social|disclosure|contact)=/i', $line ) ) {
+		if ( ! preg_match( '/^(member|belongto|control|controlledby|social|disclosure|contact|vendor|customer|datatrainingallowed)=/i', $line ) ) {
 			$errors[] = array(
 				'line' => $line_number,
 				'type' => 'invalid_variable',
 			);
-		} elseif ( preg_match( '/^(member|belongto|control|controlledby|disclosure|social|contact)=/i', $line ) ) {
+		} elseif ( preg_match( '/^(member|belongto|control|controlledby|disclosure|social|contact|vendor|customer|datatrainingallowed)=/i', $line ) ) {
 			// If we have a valid spec from the above list, check if the domain format is correct
 			// This elseif condition is unnecessary but in future it will be needed
+
+			// This is a hack to allow only one datatrainingallowed record.
+			static $datatrainingallowed_count = 0;
 	
 			// Disregard any comments.
 			$spec = explode( '#', $line );
@@ -128,6 +131,20 @@ function validate_line( $line, $line_number ) {
 				// Use special contact regex for validation
 				$validation_regex = $disclosure_regex;
 				$error_type       = 'invalid_disclosure';
+			} elseif ( 0 === stripos( $line, 'datatrainingallowed=' ) ) {
+				// Use special contact regex for validation
+				$validation_regex = '/^(yes|no)$/i';
+				$error_type       = 'invalid_datatrainingallowed';
+
+				// If we have more than one datatrainingallowed record, it's invalid.
+				if ( 0 < $datatrainingallowed_count ) {
+					$errors[] = array(
+						'line' => $line_number,
+						'type' => 'invalid_datatrainingallowed_count',
+					);
+				} else {
+					$datatrainingallowed_count++;
+				}
 			}
 
 			if ( '' === $spec[0] ) {
