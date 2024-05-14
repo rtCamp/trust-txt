@@ -6,7 +6,7 @@ Tags: Trust.txt
 Requires at least: 4.9
 Tested up to: 6.1
 Requires PHP: 5.3
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 Text Domain: trust-txt
