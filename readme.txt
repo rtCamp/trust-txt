@@ -4,9 +4,9 @@ Contributors: rtcamp, mangeshp, scodtt, journallist
 Plugin URI: https://github.com/rtcamp/trust-txt
 Tags: Trust.txt
 Requires at least: 4.9
-Tested up to: 6.1
+Tested up to: 6.5.3
 Requires PHP: 5.3
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 Text Domain: trust-txt
@@ -54,6 +54,11 @@ You will need to rename or remove the existing Trust.txt file (keeping a copy of
 
 == Changelog ==
 
+= 1.3 [ May 14, 2024 ] =
+* Compatible with PHP 8.1 and WordPress 6.5.3
+* Add support for Trust.txt rules as of April 2024
+* Fixed domain validation in social profile URL.
+
 = 1.2 [ May 04, 2022 ] =
 * Show contents of trust.txt file on both the paths depending upon the plugin settings
 * Make trust.txt accessible on root as well as on .well-known directory
@@ -65,6 +70,9 @@ You will need to rename or remove the existing Trust.txt file (keeping a copy of
 * Initial plugin release
 
 == Upgrade Notice ==
+
+= 1.3 =
+* Trust.txt v1.3 with Latest PHP 8.1 compatibility and support for Trust.txt rules as of April 2024
 
 = 1.2 =
 * Show contents of trust.txt file on both the paths depending upon the plugin settings
