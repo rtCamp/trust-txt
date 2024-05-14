@@ -54,6 +54,11 @@ You will need to rename or remove the existing Trust.txt file (keeping a copy of
 
 == Changelog ==
 
+= 1.3 [ May 14, 2024 ] =
+* Compatible with PHP 8.1 and WordPress 6.5.3
+* Add support for Trust.txt rules as of April 2024
+* Fixed domain validation in social profile URL.
+
 = 1.2 [ May 04, 2022 ] =
 * Show contents of trust.txt file on both the paths depending upon the plugin settings
 * Make trust.txt accessible on root as well as on .well-known directory
