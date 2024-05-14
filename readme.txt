@@ -71,6 +71,9 @@ You will need to rename or remove the existing Trust.txt file (keeping a copy of
 
 == Upgrade Notice ==
 
+= 1.3 =
+* Trust.txt v1.3 with Latest PHP 8.1 compatibility and support for Trust.txt rules as of April 2024
+
 = 1.2 =
 * Show contents of trust.txt file on both the paths depending upon the plugin settings
 
