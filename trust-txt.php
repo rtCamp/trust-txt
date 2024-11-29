@@ -29,7 +29,7 @@ require_once __DIR__ . '/inc/save.php';
  * @return void
  */
 function rtcamp_display_trust_txt() {
-	$request 			   = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : false;
+	$request               = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : false;
 	$trust_well_known_path = get_option( 'trust_custom_path' );
 
 	$valid_paths = array(

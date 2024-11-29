@@ -92,24 +92,24 @@ add_action( 'wp_ajax_trusttxt-save', __NAMESPACE__ . '\save' );
  * }
  */
 function validate_line( $line, $line_number ) {
-	$domain_regex       = '/^(https?):\/\/((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}(\/)?(@)?([a-z0-9-.\/_]*)$/i';
-	$disclosure_regex   = '/^(https?):\/\/((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}(\/)?([a-z0-9-.\/_]*.txt)$/i';
-	$errors             = array();
+	$domain_regex     = '/^(https?):\/\/((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}(\/)?(@)?([a-z0-9-.\/_]*)$/i';
+	$disclosure_regex = '/^(https?):\/\/((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}(\/)?([a-z0-9-.\/_]*.txt)$/i';
+	$errors           = array();
 
 	if ( empty( $line ) ) {
 		$sanitized = '';
 	} elseif ( 0 === strpos( $line, '#' ) ) { // This is a full-line comment.
 		$sanitized = wp_strip_all_tags( $line );
 	} elseif ( 1 < strpos( $line, '=' ) ) { // This is a variable declaration.
-		// The spec currently supports member, belongto, control, controlledby, social, disclosure and contact
+		// The spec currently supports member, belongto, control, controlledby, social, disclosure and contact.
 		if ( ! preg_match( '/^(member|belongto|control|controlledby|social|disclosure|contact|vendor|customer|datatrainingallowed)=/i', $line ) ) {
 			$errors[] = array(
 				'line' => $line_number,
 				'type' => 'invalid_variable',
 			);
 		} elseif ( preg_match( '/^(member|belongto|control|controlledby|disclosure|social|contact|vendor|customer|datatrainingallowed)=/i', $line ) ) {
-			// If we have a valid spec from the above list, check if the domain format is correct
-			// This elseif condition is unnecessary but in future it will be needed
+			// If we have a valid spec from the above list, check if the domain format is correct.
+			// This elseif condition is unnecessary but in future it will be needed.
 
 			// This is a hack to allow only one datatrainingallowed record.
 			static $datatrainingallowed_count = 0;
@@ -125,15 +125,15 @@ function validate_line( $line, $line_number ) {
 			$error_type       = 'invalid_domain';
 
 			if ( 0 === stripos( $line, 'contact=' ) ) {
-				// Use special contact regex for validation
+				// Use special contact regex for validation.
 				$validation_regex = '/^.+$/i';
 				$error_type       = 'invalid_contact';
 			} elseif ( 0 === stripos( $line, 'disclosure=' ) ) {
-				// Use special contact regex for validation
+				// Use special contact regex for validation.
 				$validation_regex = $disclosure_regex;
 				$error_type       = 'invalid_disclosure';
 			} elseif ( 0 === stripos( $line, 'datatrainingallowed=' ) ) {
-				// Use special contact regex for validation
+				// Use special contact regex for validation.
 				$validation_regex = '/^(yes|no)$/i';
 				$error_type       = 'invalid_datatrainingallowed';
 
@@ -144,7 +144,7 @@ function validate_line( $line, $line_number ) {
 						'type' => 'invalid_datatrainingallowed_count',
 					);
 				} else {
-					$datatrainingallowed_count++;
+					++$datatrainingallowed_count;
 				}
 			}
 
@@ -156,8 +156,8 @@ function validate_line( $line, $line_number ) {
 			if ( 1 !== count( $spec ) ||
 				! preg_match( $validation_regex, $spec[0] )
 			) {
-				$spec = implode( '', $spec );
-				$errors[]  = array(
+				$spec     = implode( '', $spec );
+				$errors[] = array(
 					'line'  => $line_number,
 					'type'  => $error_type,
 					'value' => $spec,

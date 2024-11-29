@@ -21,7 +21,7 @@ function admin_enqueue_scripts( $hook ) {
 
 	wp_enqueue_script(
 		'trusttxt',
-		esc_url( plugins_url( '/js/admin.js', dirname( __FILE__ ) ) ),
+		esc_url( plugins_url( '/js/admin.js', __DIR__ ) ),
 		array( 'jquery', 'wp-backbone', 'wp-codemirror' ),
 		TRUST_TXT_MANAGER_VERSION,
 		true
@@ -29,7 +29,7 @@ function admin_enqueue_scripts( $hook ) {
 	wp_enqueue_style( 'code-editor' );
 	wp_enqueue_style(
 		'trusttxt',
-		esc_url( plugins_url( '/css/admin.css', dirname( __FILE__ ) ) ),
+		esc_url( plugins_url( '/css/admin.css', __DIR__ ) ),
 		array(),
 		TRUST_TXT_MANAGER_VERSION
 	);
@@ -134,7 +134,6 @@ function admin_header_revisions_styles() {
 		}
 	</style>
 	<?php
-
 }
 add_action( 'admin_head', __NAMESPACE__ . '\admin_header_revisions_styles' );
 
@@ -151,7 +150,6 @@ function admin_menu() {
 		'trusttxt-settings',
 		__NAMESPACE__ . '\trusttxt_settings_screen'
 	);
-
 }
 add_action( 'admin_menu', __NAMESPACE__ . '\admin_menu' );
 
@@ -191,10 +189,10 @@ function trusttxt_settings_screen() {
  * @return void
  */
 function settings_screen( $post_id, $strings, $args ) {
-	$trust_path 	  = get_option( 'trust_custom_path' );
+	$trust_path       = get_option( 'trust_custom_path' );
 	$post             = false;
 	$content          = false;
-	$errors           = [];
+	$errors           = array();
 	$revision_count   = 0;
 	$last_revision_id = false;
 
@@ -376,7 +374,7 @@ function display_formatted_error( $error ) {
 	}
 
 	$replacement_link = '<a href="https://journallist.net/reference-document-for-trust-txt-specifications" target="_blank">JournalList.net</a>';
-	$message = sprintf( str_replace("JournalList.net", $replacement_link, esc_html( $messages[ $error['type'] ] ) ), '<code>' . esc_html( $error['value'] ) . '</code>' );
+	$message          = sprintf( str_replace( 'JournalList.net', $replacement_link, esc_html( $messages[ $error['type'] ] ) ), '<code>' . esc_html( $error['value'] ) . '</code>' );
 
 	printf(
 		/* translators: Error message output. 1: Line number, 2: Error message */

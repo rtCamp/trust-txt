@@ -52,7 +52,6 @@ function register() {
 			$args
 		)
 	);
-
 }
 
 add_action( 'init', __NAMESPACE__ . '\register' );
